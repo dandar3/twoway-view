@@ -1525,7 +1525,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
                             }
 
                             mTouchModeReset = new Runnable() {
-                                @Override
                                 public void run() {
                                     mTouchMode = TOUCH_MODE_REST;
 
@@ -1623,7 +1622,10 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
         return true;
     }
 
-    @Override
+    /*
+     * (non-Javadoc)
+     * @see android.view.ViewTreeObserver.OnTouchModeChangeListener#onTouchModeChanged(boolean)
+     */
     public void onTouchModeChanged(boolean isInTouchMode) {
         if (isInTouchMode) {
             // Get rid of the selection when we enter touch mode
@@ -6264,12 +6266,10 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
 
         public static final Parcelable.Creator<SavedState> CREATOR
                 = new Parcelable.Creator<SavedState>() {
-            @Override
             public SavedState createFromParcel(Parcel in) {
                 return new SavedState(in);
             }
 
-            @Override
             public SavedState[] newArray(int size) {
                 return new SavedState[size];
             }
@@ -6277,7 +6277,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
     }
 
     private class SelectionNotifier implements Runnable {
-        @Override
         public void run() {
             if (mDataChanged) {
                 // Data has changed between when this SelectionNotifier
@@ -6308,7 +6307,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
     private class PerformClick extends WindowRunnnable implements Runnable {
         int mClickMotionPosition;
 
-        @Override
         public void run() {
             if (mDataChanged) {
                 return;
@@ -6330,7 +6328,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
     }
 
     private final class CheckForTap implements Runnable {
-        @Override
         public void run() {
             if (mTouchMode != TOUCH_MODE_DOWN) {
                 return;
@@ -6381,7 +6378,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
     }
 
     private class CheckForLongPress extends WindowRunnnable implements Runnable {
-        @Override
         public void run() {
             final int motionPosition = mMotionPosition;
             final View child = getChildAt(motionPosition - mFirstPosition);
