@@ -441,7 +441,9 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
         requestLayout();
     }
 
-    @SuppressWarnings("unused")
+    /**
+     * 
+     */
     public int getItemMargin() {
         return mItemMargin;
     }
@@ -452,7 +454,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
      *
      * @param itemsCanFocus true if items can get focus, false otherwise
      */
-    @SuppressWarnings("unused")
     public void setItemsCanFocus(boolean itemsCanFocus) {
         mItemsCanFocus = itemsCanFocus;
         if (!itemsCanFocus) {
@@ -464,7 +465,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
      * @return Whether the views created by the ListAdapter can contain focusable
      * items.
      */
-    @SuppressWarnings("unused")
     public boolean getItemsCanFocus() {
         return mItemsCanFocus;
     }
@@ -503,7 +503,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
      *
      * @attr ref android.R.styleable#AbsListView_drawSelectorOnTop
      */
-    @SuppressWarnings("unused")
     public void setDrawSelectorOnTop(boolean drawSelectorOnTop) {
         mDrawSelectorOnTop = drawSelectorOnTop;
     }
@@ -515,7 +514,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
      *
      * @attr ref android.R.styleable#AbsListView_listSelector
      */
-    @SuppressWarnings("unused")
     public void setSelector(int resID) {
         setSelector(getResources().getDrawable(resID));
     }
@@ -547,7 +545,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
      *
      * @return the drawable used to display the selector
      */
-    @SuppressWarnings("unused")
     public Drawable getSelector() {
         return mSelector;
     }
@@ -581,7 +578,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
      * @see #getCheckedItemPositions()
      * @see #getCheckedItemIds()
      */
-    @SuppressWarnings("unused")
     public int getCheckedItemCount() {
         return mCheckedItemCount;
     }
@@ -671,7 +667,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
      * @param position The item whose checked state is to be checked
      * @param value The new checked state for the item
      */
-    @SuppressWarnings("unused")
     public void setItemChecked(int position, boolean value) {
         if (mChoiceMode == ChoiceMode.NONE) {
             return;
@@ -735,7 +730,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
     /**
      * Clear any choices previously set
      */
-    @SuppressWarnings("unused")
     public void clearChoices() {
         if (mCheckStates != null) {
             mCheckStates.clear();
@@ -753,7 +747,6 @@ public class TwoWayView extends AdapterView<ListAdapter> implements
      *
      * @return The current choice mode
      */
-    @SuppressWarnings("unused")
     public ChoiceMode getChoiceMode() {
         return mChoiceMode;
     }
