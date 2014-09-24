@@ -1,3 +1,14 @@
+
+Eclipse friendly version of the project.
+
+twoway-view-core
+================
+Requires libraries:
+* [dandar3/android-support-v4](https://github.com/dandar3/android-support-v4)
+* [dandar3/recyclerview](https://github.com/dandar3/android-support-v7-recyclerview)
+
+<hr>
+
 TwoWayView
 ==========
 
