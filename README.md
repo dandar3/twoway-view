@@ -7,6 +7,26 @@ Requires libraries:
 * [dandar3/android-support-v4](https://github.com/dandar3/android-support-v4)
 * [dandar3/recyclerview](https://github.com/dandar3/android-support-v7-recyclerview)
 
+SVN checkout URL:<br>
+https://github.com/dandar3/twoway-view/trunk/core/src/main
+
+twoway-view-layouts
+===================
+Requires libraries:
+* [dandar3/twoway-view-core](https://github.com/dandar3/twoway-view/tree/master/core/src/main) (above)
+
+SVN checkout URL:<br>
+https://github.com/dandar3/twoway-view/trunk/layouts/src/main
+
+twoway-view-sample
+==================
+Requires libraries:
+* [dandar3/twoway-view-layouts](https://github.com/dandar3/twoway-view/tree/master/layouts/src/main) (above)
+* [dandar3/android-support-v7-appcompat](https://github.com/dandar3/android-support-v7-appcompat)
+
+SVN checkout URL:<br>
+https://github.com/dandar3/twoway-view/trunk/sample/src/main
+
 <hr>
 
 TwoWayView
