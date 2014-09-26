@@ -11,8 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 
 abstract class ClickItemTouchListener implements OnItemTouchListener {
-    private static final String LOGTAG = "ClickItemTouchListener";
-
     private final GestureDetectorCompat mGestureDetector;
 
     ClickItemTouchListener(RecyclerView hostView) {

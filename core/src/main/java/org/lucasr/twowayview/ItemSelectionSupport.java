@@ -11,7 +11,6 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.Checkable;
-
 import static android.os.Build.VERSION_CODES.HONEYCOMB;
 
 public class ItemSelectionSupport {
@@ -158,7 +157,8 @@ public class ItemSelectionSupport {
      * @param position The item whose checked state is to be checked
      * @param checked The new checked state for the item
      */
-    public void setItemChecked(int position, boolean checked) {
+    @SuppressWarnings("rawtypes")
+	public void setItemChecked(int position, boolean checked) {
         if (mChoiceMode == ChoiceMode.NONE) {
             return;
         }
@@ -258,7 +258,8 @@ public class ItemSelectionSupport {
      * @param choiceMode One of {@link ChoiceMode#NONE}, {@link ChoiceMode#SINGLE}, or
      * {@link ChoiceMode#MULTIPLE}
      */
-    public void setChoiceMode(ChoiceMode choiceMode) {
+    @SuppressWarnings("rawtypes")
+	public void setChoiceMode(ChoiceMode choiceMode) {
         if (mChoiceMode == choiceMode) {
             return;
         }
@@ -277,7 +278,8 @@ public class ItemSelectionSupport {
         }
     }
 
-    public void onAdapterDataChanged() {
+    @SuppressWarnings("rawtypes")
+	public void onAdapterDataChanged() {
         final Adapter adapter = mRecyclerView.getAdapter();
         if (mChoiceMode == ChoiceMode.NONE || adapter == null || !adapter.hasStableIds()) {
             return;
@@ -408,7 +410,8 @@ public class ItemSelectionSupport {
             }
         }
 
-        public static final Parcelable.Creator<CheckedStates> CREATOR
+        @SuppressWarnings("unused")
+		public static final Parcelable.Creator<CheckedStates> CREATOR
                 = new Parcelable.Creator<CheckedStates>() {
             @Override
             public CheckedStates createFromParcel(Parcel in) {
@@ -454,7 +457,8 @@ public class ItemSelectionSupport {
             }
         }
 
-        public static final Creator<CheckedIdStates> CREATOR
+        @SuppressWarnings("unused")
+		public static final Creator<CheckedIdStates> CREATOR
                 = new Creator<CheckedIdStates>() {
             @Override
             public CheckedIdStates createFromParcel(Parcel in) {
@@ -473,7 +477,8 @@ public class ItemSelectionSupport {
             super(recyclerView);
         }
 
-        @Override
+        @SuppressWarnings("rawtypes")
+		@Override
         boolean performItemClick(RecyclerView parent, View view, int position, long id) {
             final Adapter adapter = mRecyclerView.getAdapter();
             boolean checkedStateChanged = false;

@@ -36,8 +36,6 @@ import android.view.ViewGroup.MarginLayoutParams;
 import java.util.List;
 
 public abstract class TwoWayLayoutManager extends LayoutManager {
-    private static final String LOGTAG = "AbsLayoutManager";
-
     public static enum Orientation {
         HORIZONTAL,
         VERTICAL
@@ -656,7 +654,8 @@ public abstract class TwoWayLayoutManager extends LayoutManager {
         mRecyclerView = null;
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public void onAdapterChanged(RecyclerView.Adapter oldAdapter, RecyclerView.Adapter newAdapter) {
         super.onAdapterChanged(oldAdapter, newAdapter);
 
