@@ -5,7 +5,7 @@ twoway-view-core
 ================
 Requires libraries:
 * [dandar3/android-support-v4](https://github.com/dandar3/android-support-v4)
-* [dandar3/recyclerview](https://github.com/dandar3/android-support-v7-recyclerview)
+* [dandar3/android-support-v7-recyclerview](https://github.com/dandar3/android-support-v7-recyclerview)
 
 SVN checkout URL:<br>
 https://github.com/dandar3/twoway-view/trunk/core/src/main
