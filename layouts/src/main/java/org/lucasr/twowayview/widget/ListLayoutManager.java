@@ -24,7 +24,6 @@ import android.util.AttributeSet;
 import org.lucasr.twowayview.widget.Lanes.LaneInfo;
 
 public class ListLayoutManager extends BaseLayoutManager {
-    private static final String LOGTAG = "ListLayoutManager";
 
     public ListLayoutManager(Context context, AttributeSet attrs) {
         this(context, attrs, 0);

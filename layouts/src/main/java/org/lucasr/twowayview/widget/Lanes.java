@@ -24,7 +24,6 @@ import org.lucasr.twowayview.TwoWayLayoutManager.Orientation;
 class Lanes {
     public static final int NO_LANE = -1;
 
-    private final BaseLayoutManager mLayout;
     private final boolean mIsVertical;
     private final Rect[] mLanes;
     private final Rect[] mSavedLanes;
@@ -56,7 +55,6 @@ class Lanes {
     }
 
     public Lanes(BaseLayoutManager layout, Orientation orientation, Rect[] lanes, int laneSize) {
-        mLayout = layout;
         mIsVertical = (orientation == Orientation.VERTICAL);
         mLanes = lanes;
         mLaneSize = laneSize;
@@ -68,7 +66,6 @@ class Lanes {
     }
 
     public Lanes(BaseLayoutManager layout, int laneCount) {
-        mLayout = layout;
         mIsVertical = (layout.getOrientation() == Orientation.VERTICAL);
 
         mLanes = new Rect[laneCount];

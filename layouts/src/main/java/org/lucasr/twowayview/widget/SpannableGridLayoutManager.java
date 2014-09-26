@@ -16,9 +16,11 @@
 
 package org.lucasr.twowayview.widget;
 
+import org.lucasr.twowayview.TwoWayView;
+import org.lucasr.twowayview.widget.Lanes.LaneInfo;
+
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Rect;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
@@ -29,12 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
 
-import org.lucasr.twowayview.TwoWayView;
-import org.lucasr.twowayview.widget.Lanes.LaneInfo;
-
 public class SpannableGridLayoutManager extends GridLayoutManager {
-    private static final String LOGTAG = "SpannableGridLayoutManager";
-
     private static final int DEFAULT_NUM_COLS = 3;
     private static final int DEFAULT_NUM_ROWS = 3;
 
