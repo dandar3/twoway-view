@@ -16,9 +16,6 @@
 
 package org.lucasr.twowayview.widget;
 
-import org.lucasr.twowayview.TwoWayView;
-import org.lucasr.twowayview.widget.Lanes.LaneInfo;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Parcel;
@@ -31,7 +28,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
 
+
+import org.lucasr.twowayview.widget.Lanes.LaneInfo;
+
 public class SpannableGridLayoutManager extends GridLayoutManager {
+    private static final String LOGTAG = "SpannableGridLayoutManager";
+
     private static final int DEFAULT_NUM_COLS = 3;
     private static final int DEFAULT_NUM_ROWS = 3;
 
@@ -283,11 +285,11 @@ public class SpannableGridLayoutManager extends GridLayoutManager {
         public LayoutParams(Context c, AttributeSet attrs) {
             super(c, attrs);
 
-            TypedArray a = c.obtainStyledAttributes(attrs, R.styleable.SpannableGridViewChild);
+            TypedArray a = c.obtainStyledAttributes(attrs, R.styleable.twowayview_SpannableGridViewChild);
             colSpan = Math.max(
-                    DEFAULT_SPAN, a.getInt(R.styleable.SpannableGridViewChild_colSpan, -1));
+                    DEFAULT_SPAN, a.getInt(R.styleable.twowayview_SpannableGridViewChild_twowayview_colSpan, -1));
             rowSpan = Math.max(
-                    DEFAULT_SPAN, a.getInt(R.styleable.SpannableGridViewChild_rowSpan, -1));
+                    DEFAULT_SPAN, a.getInt(R.styleable.twowayview_SpannableGridViewChild_twowayview_rowSpan, -1));
             a.recycle();
         }
 

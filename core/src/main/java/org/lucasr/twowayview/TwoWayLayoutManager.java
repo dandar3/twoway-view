@@ -66,13 +66,13 @@ public abstract class TwoWayLayoutManager extends LayoutManager {
 
     public TwoWayLayoutManager(Context context, AttributeSet attrs, int defStyle) {
         final TypedArray a =
-                context.obtainStyledAttributes(attrs, R.styleable.TwoWayLayoutManager, defStyle, 0);
+                context.obtainStyledAttributes(attrs, R.styleable.twowayview_TwoWayLayoutManager, defStyle, 0);
 
         final int indexCount = a.getIndexCount();
         for (int i = 0; i < indexCount; i++) {
             final int attr = a.getIndex(i);
 
-            if (attr == R.styleable.TwoWayLayoutManager_android_orientation) {
+            if (attr == R.styleable.twowayview_TwoWayLayoutManager_android_orientation) {
                 final int orientation = a.getInt(attr, -1);
                 if (orientation >= 0) {
                     setOrientation(Orientation.values()[orientation]);
@@ -742,6 +742,12 @@ public abstract class TwoWayLayoutManager extends LayoutManager {
     }
 
     @Override
+    public void onItemsChanged(RecyclerView recyclerView) {
+        super.onItemsChanged(recyclerView);
+        handleAdapterChange();
+    }
+
+    @Override
     public RecyclerView.LayoutParams generateDefaultLayoutParams() {
         if (mIsVertical) {
             return new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -910,7 +916,20 @@ public abstract class TwoWayLayoutManager extends LayoutManager {
     }
 
     public int getFirstVisiblePosition() {
+        if (getChildCount() == 0) {
+            return RecyclerView.NO_POSITION;
+        }
+
         return mFirstPosition;
+    }
+
+    public int getLastVisiblePosition() {
+        final int childCount = getChildCount();
+        if (childCount == 0) {
+            return RecyclerView.NO_POSITION;
+        }
+
+        return getPosition(getChildAt(childCount - 1));
     }
 
     protected abstract void measureChild(View child, Direction direction);

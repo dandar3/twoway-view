@@ -24,6 +24,7 @@ import org.lucasr.twowayview.TwoWayLayoutManager.Orientation;
 class Lanes {
     public static final int NO_LANE = -1;
 
+    private final BaseLayoutManager mLayout;
     private final boolean mIsVertical;
     private final Rect[] mLanes;
     private final Rect[] mSavedLanes;
@@ -55,6 +56,7 @@ class Lanes {
     }
 
     public Lanes(BaseLayoutManager layout, Orientation orientation, Rect[] lanes, int laneSize) {
+        mLayout = layout;
         mIsVertical = (orientation == Orientation.VERTICAL);
         mLanes = lanes;
         mLaneSize = laneSize;
@@ -66,7 +68,8 @@ class Lanes {
     }
 
     public Lanes(BaseLayoutManager layout, int laneCount) {
-        mIsVertical = (layout.getOrientation() == Orientation.VERTICAL);
+        mLayout = layout;
+        mIsVertical = layout.isVertical();
 
         mLanes = new Rect[laneCount];
         mSavedLanes = new Rect[laneCount];
@@ -75,18 +78,10 @@ class Lanes {
             mSavedLanes[i] = new Rect();
         }
 
+        mLaneSize = calculateLaneSize(layout, laneCount);
+
         final int paddingLeft = layout.getPaddingLeft();
         final int paddingTop = layout.getPaddingTop();
-        final int paddingRight = layout.getPaddingRight();
-        final int paddingBottom = layout.getPaddingBottom();
-
-        if (mIsVertical) {
-            final int width = layout.getWidth() - paddingLeft - paddingRight;
-            mLaneSize = width / laneCount;
-        } else {
-            final int height = layout.getHeight() - paddingTop - paddingBottom;
-            mLaneSize = height / laneCount;
-        }
 
         for (int i = 0; i < laneCount; i++) {
             final int laneStart = i * mLaneSize;
@@ -97,6 +92,20 @@ class Lanes {
             final int b = (mIsVertical ? t : t + mLaneSize);
 
             mLanes[i].set(l, t, r, b);
+        }
+    }
+
+    public static int calculateLaneSize(BaseLayoutManager layout, int laneCount) {
+        if (layout.isVertical()) {
+            final int paddingLeft = layout.getPaddingLeft();
+            final int paddingRight = layout.getPaddingRight();
+            final int width = layout.getWidth() - paddingLeft - paddingRight;
+            return width / laneCount;
+        } else {
+            final int paddingTop = layout.getPaddingTop();
+            final int paddingBottom = layout.getPaddingBottom();
+            final int height = layout.getHeight() - paddingTop - paddingBottom;
+            return height / laneCount;
         }
     }
 

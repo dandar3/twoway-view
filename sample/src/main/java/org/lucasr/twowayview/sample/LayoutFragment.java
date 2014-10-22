@@ -36,7 +36,7 @@ import org.lucasr.twowayview.ItemClickSupport;
 import org.lucasr.twowayview.ItemClickSupport.OnItemClickListener;
 import org.lucasr.twowayview.ItemClickSupport.OnItemLongClickListener;
 import org.lucasr.twowayview.widget.DividerItemDecoration;
-import org.lucasr.twowayview.TwoWayView;
+import org.lucasr.twowayview.widget.TwoWayView;
 
 public class LayoutFragment extends Fragment {
     private static final String ARG_LAYOUT_ID = "layout_id";
@@ -110,11 +110,11 @@ public class LayoutFragment extends Fragment {
         });
 
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            public void onScrollStateChanged(int scrollState) {
+            public void onScrollStateChanged(RecyclerView recyclerView, int scrollState) {
                 updateState(scrollState);
             }
 
-            public void onScrolled(int i, int i2) {
+            public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 mPositionText.setText("First: " + mRecyclerView.getFirstVisiblePosition());
                 mCountText.setText("Count: " + mRecyclerView.getChildCount());
             }
