@@ -36,6 +36,8 @@ import android.view.ViewGroup.MarginLayoutParams;
 import java.util.List;
 
 public abstract class TwoWayLayoutManager extends LayoutManager {
+    private static final String LOGTAG = "TwoWayLayoutManager";
+
     public static enum Orientation {
         HORIZONTAL,
         VERTICAL
@@ -483,8 +485,8 @@ public abstract class TwoWayLayoutManager extends LayoutManager {
         // the layout will sync with the adapter changes.
         final View firstChild = findViewByPosition(mFirstPosition);
         if (firstChild != null) {
-        	mPendingScrollPosition = mFirstPosition;
-        	mPendingScrollOffset = getChildStart(firstChild);
+            mPendingScrollPosition = mFirstPosition;
+            mPendingScrollOffset = getChildStart(firstChild);
         } else {
             mPendingScrollPosition = RecyclerView.NO_POSITION;
             mPendingScrollOffset = 0;
@@ -659,8 +661,7 @@ public abstract class TwoWayLayoutManager extends LayoutManager {
         mRecyclerView = null;
     }
 
-    @SuppressWarnings("rawtypes")
-	@Override
+    @Override
     public void onAdapterChanged(RecyclerView.Adapter oldAdapter, RecyclerView.Adapter newAdapter) {
         super.onAdapterChanged(oldAdapter, newAdapter);
 

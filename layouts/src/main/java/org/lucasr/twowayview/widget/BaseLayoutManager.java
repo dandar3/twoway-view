@@ -36,6 +36,7 @@ import org.lucasr.twowayview.TwoWayLayoutManager;
 import org.lucasr.twowayview.widget.Lanes.LaneInfo;
 
 public abstract class BaseLayoutManager extends TwoWayLayoutManager {
+    private static final String LOGTAG = "BaseLayoutManager";
 
     protected static class ItemEntry implements Parcelable {
         public final int startLane;
@@ -272,8 +273,7 @@ public abstract class BaseLayoutManager extends TwoWayLayoutManager {
         }
     }
 
-    @SuppressWarnings("rawtypes")
-	@Override
+    @Override
     public void onAdapterChanged(Adapter oldAdapter, Adapter newAdapter) {
         super.onAdapterChanged(oldAdapter, newAdapter);
         forceCreateLanes();

@@ -26,6 +26,8 @@ import android.view.View;
 import org.lucasr.twowayview.widget.Lanes.LaneInfo;
 
 public class GridLayoutManager extends BaseLayoutManager {
+    private static final String LOGTAG = "GridLayoutManager";
+
     private static final int DEFAULT_NUM_COLS = 2;
     private static final int DEFAULT_NUM_ROWS = 2;
 
